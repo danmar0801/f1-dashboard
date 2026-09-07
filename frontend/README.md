@@ -1,16 +1,19 @@
-# React + Vite
+# F1 Dashboard frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+React and D3 dashboard for Monza 2024. See the [project README](../README.md) for complete setup, features, and limitations.
 
-Currently, two official plugins are available:
+From this directory:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm ci
+npm run dev -- --port 5173 --strictPort
+```
 
-## React Compiler
+Start the backend in a separate terminal, then open http://localhost:5173.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm run build
+npm run lint
+```
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Start with `src/App.jsx` for page content and state, `src/App.css` for dashboard styling, and `src/index.css` for global styles. The two chart components receive race data and selected drivers through props.

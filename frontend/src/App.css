@@ -124,3 +124,10 @@
   fill: #bdbdbd;
   font-size: 13px;
 }
+
+.compound-swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+}

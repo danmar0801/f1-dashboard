@@ -1,5 +1,6 @@
 import './App.css'
 import LapTimeChart from './LapTimeChart'
+import TireStrategyChart from './TireStrategyChart'
 import { useEffect, useState } from 'react'
 
 // Drivers who raced at Monza in 2024.
@@ -31,6 +32,9 @@ function App() {
   const [lapData, setLapData] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+  const [stintData, setStintData] = useState([])
+  const [stintsLoading, setStintsLoading] = useState(true)
+  const [stintsError, setStintsError] = useState('')
 
   useEffect(() => {
     const controller = new AbortController()
@@ -62,6 +66,28 @@ function App() {
 
     return () => controller.abort()
   }, [])
+  useEffect(() => {
+    const controller = new AbortController()
+
+    async function loadStints() {
+      try {
+        const response = await fetch('http://localhost:8000/stints', {
+          signal: controller.signal,
+        })
+        if (!response.ok) throw new Error('Could not load tire strategies.')
+        const data = await response.json()
+        setStintData(data)
+      } catch (error) {
+        if (error.name !== 'AbortError') setStintsError(error.message)
+      } finally {
+        if (!controller.signal.aborted) setStintsLoading(false)
+      }
+    }
+
+    loadStints()
+    return () => controller.abort()
+  }, [])
+
   function toggleDriver(code) {
     setSelectedDrivers((current) =>
       current.includes(code)
@@ -118,7 +144,13 @@ function App() {
       <section className="panel">
         <h2>Tire strategy</h2>
         <p>Compare tire compounds and stint lengths.</p>
-        <div className="chart-placeholder">Tire-strategy chart goes here</div>
+        {stintsLoading ? (
+          <div className="chart-placeholder">Loading tire strategies…</div>
+        ) : stintsError ? (
+          <div className="chart-placeholder" role="alert">{stintsError}</div>
+        ) : (
+          <TireStrategyChart stintData={stintData} selectedDrivers={selectedDrivers} />
+        )}
       </section>
     </main>
   )
