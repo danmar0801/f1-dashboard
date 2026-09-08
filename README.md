@@ -12,6 +12,24 @@ The frontend uses React, Vite, and D3. The backend uses FastAPI and FastF1 to lo
 - Tire-stint bars with compound colors, hover details, and an expandable text breakdown.
 - Loading, error, and empty-selection messages.
 
+## Screenshots
+
+### Race overview and podium
+
+![Monza 2024 race header and podium showing Leclerc, Piastri, and Norris](docs/screenshots/race-overview-podium.png)
+
+### Driver selection
+
+![Scrollable driver cards with Leclerc, Norris, and Piastri selected for comparison](docs/screenshots/driver-selection.png)
+
+### Lap-time comparison
+
+![Lap times across the race for Leclerc, Piastri, and Norris](docs/screenshots/lap-time-comparison.png)
+
+### Tire strategy
+
+![Medium and hard tire stints by lap for Leclerc, Norris, and Piastri](docs/screenshots/tire-strategy.png)
+
 ## Requirements
 
 - Node.js 22.12 or newer and npm.

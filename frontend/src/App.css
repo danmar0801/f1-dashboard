@@ -131,3 +131,23 @@
   height: 14px;
   border-radius: 3px;
 }
+
+.podium {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.podium-card {
+  flex: 1 1 200px;
+  padding: 24px;
+  background: #292929;
+  border-top: 4px solid #ef3333;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.podium-card h3 {
+  margin: 8px 0;
+}

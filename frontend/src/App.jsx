@@ -104,6 +104,27 @@ function App() {
       </header>
 
       <section className="panel">
+        <h2>Race Podium</h2>
+          <div className="podium">
+            <article className="podium-card">
+              <p>P1</p>
+              <h3>Charles Leclerc</h3>
+              <p>Ferrari</p>
+            </article>
+            <article className="podium-card">
+              <p>P2</p>
+              <h3>Oscar Piastri</h3>
+              <p>McLaren</p>
+            </article>
+            <article className="podium-card">
+              <p>P3</p>
+              <h3>Lando Norris</h3>
+              <p>McLaren</p>
+            </article>
+          </div>
+      </section>
+
+      <section className="panel">
         <h2>Drivers</h2>
         <p>Select drivers to compare.</p>
 
